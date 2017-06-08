@@ -16,11 +16,11 @@ public class Deck{
 	//生成一副扑克牌里的每张扑克牌
         for(int i = 0;i < ranks.length;i++){
             for(int j = 0;j < suits.length;j++){
-        	list.add(new Card(ranks[i],suits[j]));
+        	list.add(new OrdinaryCard(ranks[i],suits[j]));
             }
         }
-        list.add(new Card(jokers[0]));
-        list.add(new Card(jokers[1]));
+        list.add(new JokerCard(jokers[0]));
+        list.add(new JokerCard(jokers[1]));
     }
 
     //得到一副扑克牌有多少张
