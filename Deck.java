@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Deck{
     //定义一副扑克牌集合
-    ArrayList<Card> list = new ArrayList<Card>(); 
+    private ArrayList<Card> list = new ArrayList<Card>(); 
 
     public Deck(){
 	//扑克牌的点数
@@ -23,6 +23,10 @@ public class Deck{
         list.add(new JokerCard(jokers[1]));
     }
 
+    public Card getCard(int index){
+        return list.get(index);
+    }
+
     //得到一副扑克牌有多少张
     public int getCardNumber(){
         return list.size();
@@ -37,7 +41,7 @@ public class Deck{
         //打印扑克牌牌面
         System.out.println("牌面:");
         for(int z = 0;z < number;z++){
-            System.out.println(deck.list.get(z).getFace());
+            System.out.println(deck.getCard(z).getFace());
         }
     }
 }

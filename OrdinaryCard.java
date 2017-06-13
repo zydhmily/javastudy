@@ -3,7 +3,7 @@ public class OrdinaryCard extends Card{
 	
     public OrdinaryCard(String rank,String suit){
     	this.rank = rank;
-    	this.suit = suit;
+        this.suit = suit;
     }
     
     //得到扑克牌牌面
