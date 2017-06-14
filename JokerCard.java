@@ -1,5 +1,5 @@
 public class JokerCard extends Card{
-	String joker;
+	private String joker;
 	
 	public JokerCard(String joker){
 	    this.joker = joker;

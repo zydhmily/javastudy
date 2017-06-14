@@ -1,5 +1,5 @@
 public class OrdinaryCard extends Card{
-    String rank,suit;
+    private String rank,suit;
 	
     public OrdinaryCard(String rank,String suit){
     	this.rank = rank;

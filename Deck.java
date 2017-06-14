@@ -6,14 +6,14 @@ public class Deck{
     private ArrayList<Card> list = new ArrayList<Card>(); 
 
     public Deck(){
-	//扑克牌的点数
-    String[] ranks = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"}; 
-	//扑克牌的花色
-	String[] suits = {"heart","spade","diamond","club"};   
-	//扑克牌的大王和小王
-	String[] jokers = {"red joker","black joker"};  
+	    //扑克牌的点数
+        String[] ranks = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"}; 
+	    //扑克牌的花色
+	    String[] suits = {"heart","spade","diamond","club"};   
+	    //扑克牌的大王和小王
+	    String[] jokers = {"red joker","black joker"};  
 
-	//生成一副扑克牌里的每张扑克牌
+	    //生成一副扑克牌里的每张扑克牌
         for(int i = 0;i < ranks.length;i++){
             for(int j = 0;j < suits.length;j++){
         	list.add(new OrdinaryCard(ranks[i],suits[j]));
@@ -22,7 +22,8 @@ public class Deck{
         list.add(new JokerCard(jokers[0]));
         list.add(new JokerCard(jokers[1]));
     }
-
+    
+    //取得deck中的卡牌元素
     public Card getCard(int index){
         return list.get(index);
     }
