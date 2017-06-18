@@ -5,7 +5,7 @@ public class JokerCard extends Card{
 	this.joker = joker;
     }
 
-    //得到扑克牌牌面
+    //得到扑克牌牌面　
     public String getFace(){
         return joker;       
     }
