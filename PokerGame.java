@@ -23,11 +23,13 @@ public class PokerGame{
 		//毫秒后两位
 		int MI2 = Integer.parseInt(String.valueOf(MI).substring(2));
 		if(MI > 10){
-			for(int i = 1;i <= 10;i++){
+			for(int i = 1;i <= MI2*10;i++){
 				shuffle1(deck);
 			}
 		}else{
-             shuffle1(deck);
+			for(int i = 1;i <= MI2;i++){
+                shuffle1(deck);
+            }
 		}
 	}
 
