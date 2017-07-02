@@ -7,7 +7,7 @@ public class Deck{
 
     public Deck(){
 	//扑克牌的点数　
-        String[] ranks = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"}; 
+    String[] ranks = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"}; 
 	//扑克牌的花色
 	String[] suits = {"heart","spade","diamond","club"};   
 	//扑克牌的大王和小王
@@ -32,6 +32,19 @@ public class Deck{
     public int getCardNumber(){
         return list.size();
     }
+    //取牌
+    public Card pop(){
+        return list.remove(0);
+    }
+    //取出指定牌
+    public Card pop(int index){
+        return list.remove(index);
+    }
+    //指定位置加入牌
+    public void addCard(int index,Card card){
+        list.add(index,card);
+    }
+
 
     public static void main(String[] args){
 	//创建扑克牌实例
