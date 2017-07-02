@@ -18,7 +18,10 @@ public class PokerGame{
     //洗牌2
 	public void shuffle2(Deck deck){
 		Calendar cld = Calendar.getInstance();
+		//毫秒
 		int MI = cld.get(Calendar.MILLISECOND);
+		//毫秒后两位
+		int MI2 = Integer.parseInt(String.valueOf(MI).substring(2));
 		if(MI > 10){
 			for(int i = 1;i <= 10;i++){
 				shuffle1(deck);
