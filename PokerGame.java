@@ -8,7 +8,7 @@ public class PokerGame{
 
 	}
     //洗牌1
-	public void shuffle1(Deck deck){
+	public static void shuffle1(Deck deck){
 		int j = 27;
 		for(int i = 0;i < 54;i += 2){
 		    deck.addCard(i,deck.pop(j));
@@ -16,13 +16,13 @@ public class PokerGame{
 		}		    
 	}
     //洗牌2
-	public void shuffle2(Deck deck){
+	public static void shuffle2(Deck deck){
 		Calendar cld = Calendar.getInstance();
 		//取得系统时间的毫秒
 		int MI = cld.get(Calendar.MILLISECOND);
 		//毫秒后两位
 		int MIAfterTwo = Integer.parseInt(String.valueOf(MI).substring(1));
-		if(MI > 10){
+		if(MIAfterTwo > 10){
 			for(int i = 1;i <= MIAfterTwo*10;i++){
 				shuffle1(deck);
 			}
