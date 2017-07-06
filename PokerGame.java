@@ -9,15 +9,15 @@ public class PokerGame{
 	    this.deck = deck;		
 	}
     //洗牌1
-	public void shuffle1(Deck deck){
+	public void shuffle1(){
 		int j = 27;
 		for(int i = 0;i < 54;i += 2){
-		    deck.addCard(i,deck.pop(j));
+		    this.deck.addCard(i,deck.pop(j));
 		    j = j + 1;
 		}		    
 	}
     //洗牌2
-	public void shuffle2(Deck deck){
+	public void shuffle2(){
 		Calendar cld = Calendar.getInstance();
 		//取得系统时间的毫秒
 		int MI = cld.get(Calendar.MILLISECOND);
@@ -26,22 +26,22 @@ public class PokerGame{
 		
 		if(MIAfterTwo > 10){
 			for(int i = 1;i <= MIAfterTwo*10;i++){
-				shuffle1(deck);
+				this.shuffle1();
 			}
 		}else{
 			for(int i = 1;i <= MIAfterTwo;i++){
-                shuffle1(deck);
+                this.shuffle1();
             }
 		}
 	}
     //向玩家发牌
-	public void deal(List<Player> players,Deck deck){
-		while(deck.getCardNumber() > 0){
-		    for(int i = 0;i < players.size();i++){
+	public void deal(){
+		while(this.deck.getCardNumber() > 0){
+		    for(int i = 0;i < this.players.size();i++){
 		    	//从deck最前面取一张牌
-			    Card a = deck.pop();
+			    Card a = this.deck.pop();
 			    //把这张牌发给玩家
-			    players.get(i).putCard(a);
+			    this.players.get(i).putCard(a);
 			}
 		}
 	}
@@ -55,21 +55,21 @@ public class PokerGame{
 		Deck deck = new Deck();	 
 		PokerGame game = new PokerGame(players,deck);
 		//有洗牌2方法洗牌
-		game.shuffle2(deck);
+		game.shuffle2();
 		//向玩家发牌
-		game.deal(players,deck);
+		game.deal();
 		//打印玩家手牌的牌面
-		System.out.println("玩家：" + players.get(0).id + "的手牌");
-		for(int i = 0;i < players.get(0).getPlayerCardNumber();i++){
-			System.out.println(players.get(0).getPlayerCardFace(i));
+		System.out.println("玩家：" + game.players.get(0).id + "的手牌");
+		for(int i = 0;i < game.players.get(0).getPlayerCardNumber();i++){
+			System.out.println(game.players.get(0).getPlayerCardFace(i));
 		}
-		System.out.println("玩家：" + players.get(1).id + "的手牌");
-		for(int i = 0;i < players.get(1).getPlayerCardNumber();i++){
+		System.out.println("玩家：" + game.players.get(1).id + "的手牌");
+		for(int i = 0;i < game.players.get(1).getPlayerCardNumber();i++){
 			System.out.println(players.get(1).getPlayerCardFace(i));
 		}
 		System.out.println("玩家：" + players.get(2).id + "的手牌");
-		for(int i = 0;i < players.get(2).getPlayerCardNumber();i++){
-			System.out.println(players.get(2).getPlayerCardFace(i));
+		for(int i = 0;i < game.players.get(2).getPlayerCardNumber();i++){
+			System.out.println(game.players.get(2).getPlayerCardFace(i));
 		}
 	}
 }
