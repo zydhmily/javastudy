@@ -1,14 +1,15 @@
-import java.util.Date;
-import java.util.Calendar;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class PokerGame{
-	public PokerGame(){		
+	public List<Player> players;
+	public Deck deck;
 
+	public PokerGame(List<Player> players,Deck deck){
+	    this.players = players;
+	    this.deck = deck;		
 	}
     //洗牌1
-	public static void shuffle1(Deck deck){
+	public void shuffle1(Deck deck){
 		int j = 27;
 		for(int i = 0;i < 54;i += 2){
 		    deck.addCard(i,deck.pop(j));
@@ -16,12 +17,13 @@ public class PokerGame{
 		}		    
 	}
     //洗牌2
-	public static void shuffle2(Deck deck){
+	public void shuffle2(Deck deck){
 		Calendar cld = Calendar.getInstance();
 		//取得系统时间的毫秒
 		int MI = cld.get(Calendar.MILLISECOND);
 		//毫秒后两位
-		int MIAfterTwo = Integer.parseInt(String.valueOf(MI).substring(1));
+		int MIAfterTwo = MI % 100;
+		
 		if(MIAfterTwo > 10){
 			for(int i = 1;i <= MIAfterTwo*10;i++){
 				shuffle1(deck);
@@ -36,20 +38,22 @@ public class PokerGame{
 	public void deal(List<Player> players,Deck deck){
 		while(deck.getCardNumber() > 0){
 		    for(int i = 0;i < players.size();i++){
+		    	//从deck最前面取一张牌
 			    Card a = deck.pop();
+			    //把这张牌发给玩家
 			    players.get(i).putCard(a);
 			}
 		}
 	}
 
 	public static void main(String[] args){
-		PokerGame game = new PokerGame();
-		List<Player> players = new ArrayList<Player>();  
-		Deck deck = new Deck();
-		//向玩家列表添加玩家
+		List<Player> players = new ArrayList<Player>();
+	    //向玩家列表添加玩家
 		players.add(new Player(1));
 		players.add(new Player(2));
-		players.add(new Player(3));
+		players.add(new Player(3));	
+		Deck deck = new Deck();	 
+		PokerGame game = new PokerGame(players,deck);
 		//有洗牌2方法洗牌
 		game.shuffle2(deck);
 		//向玩家发牌
