@@ -12,7 +12,7 @@ public class PokerGame{
 	public void shuffle1(){
 		int j = 27;
 		for(int i = 0;i < 54;i += 2){
-		    this.deck.addCard(i,deck.pop(j));
+		    deck.addCard(i,deck.pop(j));
 		    j = j + 1;
 		}		    
 	}
@@ -26,22 +26,22 @@ public class PokerGame{
 		
 		if(MIAfterTwo > 10){
 			for(int i = 1;i <= MIAfterTwo*10;i++){
-				this.shuffle1();
+				shuffle1();
 			}
 		}else{
 			for(int i = 1;i <= MIAfterTwo;i++){
-                this.shuffle1();
+                shuffle1();
             }
 		}
 	}
     //向玩家发牌
 	public void deal(){
-		while(this.deck.getCardNumber() > 0){
-		    for(int i = 0;i < this.players.size();i++){
+		while(deck.getCardNumber() > 0){
+		    for(int i = 0;i < players.size();i++){
 		    	//从deck最前面取一张牌
-			    Card a = this.deck.pop();
+			    Card a = deck.pop();
 			    //把这张牌发给玩家
-			    this.players.get(i).putCard(a);
+			    players.get(i).putCard(a);
 			}
 		}
 	}
