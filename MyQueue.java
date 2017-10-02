@@ -2,7 +2,7 @@ import java.util.*;
 
 public class MyQueue{
 	//定义一个存储元素的链表
-	private LinkedList list = new LinkedList();
+	private LinkedList<Object> list = new LinkedList<Object>();
     //向队列中放入元素
 	public void put(Object o){
 	    list.addLast(o);

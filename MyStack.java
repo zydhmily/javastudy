@@ -2,7 +2,7 @@ import java.util.*;
 
 public class MyStack{
 	//定义一个存储元素的链表
-    private LinkedList list = new LinkedList();
+    private LinkedList<Object> list = new LinkedList<Object>();
     //向栈内放入元素
 	public void push(Object o){
         list.addLast(o);
