@@ -1,0 +1,10 @@
+public Map<String, String> getProperties(String propertiesFilePath) throws Exception {
+	Properties properties=new Properties();
+	properties.load(new FileInputStream(propertiesFilePath));
+	Set<String> keys=properties.stringPropertyNames();
+	Map<String, String> map=new HashMap<String, String>();
+	for (String k : keys) {
+		map.put(k, properties.getProperty(k));
+	}
+	return  map;
+} 
